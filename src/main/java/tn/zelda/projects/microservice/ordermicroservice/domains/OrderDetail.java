@@ -1,35 +1,53 @@
 package tn.zelda.projects.microservice.ordermicroservice.domains;
 
-import java.util.Set;
+import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-@Table(name="orderdetail")
+@Table(name = "orderdetail")
 @Entity
-public class OrderDetail {
-
-	@Id	@GeneratedValue
-	private String id;
+@IdClass(OrderDetail.class)
+public class OrderDetail implements Serializable {
 	
+//	@EmbeddedId
+//	private OrderDetailId orderDetailId;
+	
+	@Id
+	@GeneratedValue
+	private Long id;	
+	
+	@Column(name = "created_on")
+    private Date createdOn = new Date();
+	
+	@Column
 	private int quantity;
-	
-	@OneToMany
-	private Set<Product> products;
-	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("productId")
+	private Product product;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("orderId")
+	private Order order;
+
 	public OrderDetail() {
-		
+		this.product =  new Product();
+		this.order =  new Order();
 	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	
+	public OrderDetail(Product product, Order order) {
+		this.product = product;
+		this.order = order;
 	}
 
 	public int getQuantity() {
@@ -40,13 +58,45 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	public Set<Product> getProducts() {
-		return products;
+
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProducts(Set<Product> products) {
-		this.products = products;
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+//	public OrderDetailId getOrderDetailId() {
+//		return orderDetailId;
+//	}
+//
+//	public void setOrderDetailId(OrderDetailId orderDetailId) {
+//		this.orderDetailId = orderDetailId;
+//	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
 	}
 	
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}	
+
 }
