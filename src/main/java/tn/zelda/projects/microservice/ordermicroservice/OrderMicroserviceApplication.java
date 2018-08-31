@@ -25,23 +25,23 @@ public class OrderMicroserviceApplication implements CommandLineRunner {
 
 	@Autowired
 	private OrderRepository orderRepository;
-	
+
 	@Autowired
-	private ProductRepository productRepository; 
-	
+	private ProductRepository productRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(OrderMicroserviceApplication.class, args);
 	}
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 
 		log.debug("OrderMicroservice command line runner!");
-		
+
 		Product product = new Product("Microservices", "ms_ebook", 50);
-		
+
 		productRepository.save(product);
-		
+
 		Order o = new Order();
 
 		Set<OrderDetail> odSet = o.getOrdersDetails();
@@ -52,7 +52,7 @@ public class OrderMicroserviceApplication implements CommandLineRunner {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Bean

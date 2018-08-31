@@ -1,8 +1,11 @@
 package tn.zelda.projects.microservice.ordermicroservice.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Review {
+public class Review implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,10 +21,11 @@ public class Review {
 	private Long id;
 
 	private String comment;
-
-//	@ManyToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name = "fk_book")
-//	private Order book;
+	
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+	@JoinColumn(name = "product_id")
+	private Product product;
 
 	public Long getId() {
 		return id;
@@ -34,18 +38,18 @@ public class Review {
 	public void setComment(final String comment) {
 		this.comment = comment;
 	}
-//
-//	public Order getBook() {
-//		return book;
-//	}
-//
-//	public void setBook(final Order book) {
-//		this.book = book;
-//	}
 
 	@Override
 	public int hashCode() {
 		return 31;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	@Override

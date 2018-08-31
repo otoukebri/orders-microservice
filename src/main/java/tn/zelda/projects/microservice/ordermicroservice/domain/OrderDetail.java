@@ -30,12 +30,12 @@ public class OrderDetail implements Serializable {
 	private int quantity;
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "product_id")
 	private Product product;
 
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "order_id")
 	private Order order;
 

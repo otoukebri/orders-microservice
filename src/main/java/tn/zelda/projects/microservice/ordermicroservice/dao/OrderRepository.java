@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import tn.zelda.projects.microservice.ordermicroservice.domain.Order;
 
+
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 

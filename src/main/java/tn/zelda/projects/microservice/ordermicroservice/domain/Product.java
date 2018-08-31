@@ -6,11 +6,13 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "products")
 @Entity
@@ -20,18 +22,28 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
+	@NotNull
 	@Column
 	private String code;
+	
 	@Column
 	private String label;
+	
+	@NotNull
 	@Column
 	private float price;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+	@OneToMany(cascade = {CascadeType.ALL}, mappedBy = "product")
 	private Set<OrderDetail> ordersDetails;
 
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "product")
+	private Set<Review> reviews;
+	
 	public Product() {
 		this.ordersDetails  = new HashSet<OrderDetail>();
+		this.reviews = new HashSet<Review>();
 	}
 
 	public Product(final String label, final String code, final float price) {
@@ -92,6 +104,15 @@ public class Product {
 	@Override
 	public int hashCode() {
 		return 31;
+	}
+
+	
+	public Set<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(Set<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class Order {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
-	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "order", fetch =  FetchType.LAZY)
+	@OneToMany(cascade = { CascadeType.ALL}, orphanRemoval = true, mappedBy = "order", fetch =  FetchType.LAZY)
 	private Set<OrderDetail> ordersDetails;
 
 	// @OneToMany(cascade = CascadeType.ALL)
