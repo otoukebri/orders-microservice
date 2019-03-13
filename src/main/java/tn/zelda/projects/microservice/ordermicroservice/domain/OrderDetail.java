@@ -38,7 +38,6 @@ public class OrderDetail implements Serializable {
 	@Column
 	private int stock;
 
-
 	public OrderDetail() {
 		this.product = new Product();
 		this.order = new Order();

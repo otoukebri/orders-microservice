@@ -25,18 +25,16 @@ public class Order {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
-	@OneToMany(cascade = { CascadeType.ALL}, orphanRemoval = true, mappedBy = "order", fetch =  FetchType.LAZY)
-	private Set<OrderDetail> ordersDetails;
-
-	// @OneToMany(cascade = CascadeType.ALL)
-	// private Set<Review> reviews = new HashSet<Review>();
-	//
 	@Version
 	@Column(name = "version")
 	private int version;
 
 	@Column(name = "code")
 	private String code;
+
+	@OneToMany(cascade = { CascadeType.ALL}, orphanRemoval = true, mappedBy = "order", fetch =  FetchType.LAZY)
+	private Set<OrderDetail> ordersDetails;
+
 
 	public Order() {
 		ordersDetails = new HashSet<>();
@@ -48,29 +46,6 @@ public class Order {
 		this.code =  code;
 	}
 
-
-	// public Set<Review> getReviews() {
-	// return reviews;
-	// }
-	//
-	// public void setReviews(Set<Review> reviews) {
-	// this.reviews = reviews;
-	// }
-	public Long getId() {
-		return this.id;
-	}
-
-	public int getVersion() {
-		return this.version;
-	}
-
-	public String getTitle() {
-		return code;
-	}
-
-	public void setTitle(final String title) {
-		this.code = title;
-	}
 
 	@Override
 	public boolean equals(final Object obj) {
@@ -116,6 +91,22 @@ public class Order {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public int getVersion() {
+		return this.version;
+	}
+
+	public String getTitle() {
+		return code;
+	}
+
+	public void setTitle(final String title) {
+		this.code = title;
 	}
 
 }

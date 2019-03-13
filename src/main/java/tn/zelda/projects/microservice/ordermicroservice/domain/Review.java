@@ -20,6 +20,7 @@ public class Review implements Serializable {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
+	@Column(name = "comment", updatable = false, nullable = false)
 	private String comment;
 	
 	@Id
