@@ -32,8 +32,10 @@ public class Order {
 	// private Set<Review> reviews = new HashSet<Review>();
 	//
 	@Version
+	@Column(name = "version")
 	private int version;
 
+	@Column(name = "code")
 	private String code;
 
 	public Order() {
@@ -45,6 +47,15 @@ public class Order {
 		ordersDetails = new HashSet<>();
 		this.code =  code;
 	}
+
+
+	// public Set<Review> getReviews() {
+	// return reviews;
+	// }
+	//
+	// public void setReviews(Set<Review> reviews) {
+	// this.reviews = reviews;
+	// }
 	public Long getId() {
 		return this.id;
 	}
@@ -107,11 +118,4 @@ public class Order {
 		this.version = version;
 	}
 
-	// public Set<Review> getReviews() {
-	// return reviews;
-	// }
-	//
-	// public void setReviews(Set<Review> reviews) {
-	// this.reviews = reviews;
-	// }
 }

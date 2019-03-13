@@ -38,17 +38,17 @@ public class OrderMicroserviceApplication implements CommandLineRunner {
 
 		log.debug("OrderMicroservice command line runner!");
 
+		//init phase normally product should already exits in db
 		Product product = new Product("Microservices", "ms_ebook", 50);
-
 		productRepository.save(product);
 
-		Order o = new Order();
 
-		Set<OrderDetail> odSet = o.getOrdersDetails();
+		Order order = new Order();
+		Set<OrderDetail> odSet = order.getOrdersDetails();
 		System.out.println(odSet);
-		odSet.add(new OrderDetail(product, o));
+		odSet.add(new OrderDetail(product, order));
 		try {
-			orderRepository.save(o);
+			orderRepository.save(order);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

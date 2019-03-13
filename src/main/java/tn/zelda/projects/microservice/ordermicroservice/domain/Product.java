@@ -24,14 +24,14 @@ public class Product {
 	private Long id;
 	
 	@NotNull
-	@Column
+	@Column(name = "code")
 	private String code;
 	
-	@Column
+	@Column(name = "label")
 	private String label;
 	
 	@NotNull
-	@Column
+	@Column(name = "price")
 	private float price;
 
 	@OneToMany(cascade = {CascadeType.ALL}, mappedBy = "product")

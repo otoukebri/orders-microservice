@@ -7,8 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,12 +21,7 @@ public class OrderDetail implements Serializable {
 //	@Column(name = "id", updatable = false, nullable = false)
 //	private Long id;
 
-	@Column(name = "created_on")
-	private Date createdOn;
 
-	@Column
-	private int quantity;
-	
 	@Id
 	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "product_id")
@@ -38,6 +31,13 @@ public class OrderDetail implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "order_id")
 	private Order order;
+
+	@Column(name = "created_on")
+	private Date createdOn;
+
+	@Column
+	private int stock;
+
 
 	public OrderDetail() {
 		this.product = new Product();
@@ -51,12 +51,12 @@ public class OrderDetail implements Serializable {
 		this.createdOn = new Date();		
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getStock() {
+		return stock;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 	public Product getProduct() {
