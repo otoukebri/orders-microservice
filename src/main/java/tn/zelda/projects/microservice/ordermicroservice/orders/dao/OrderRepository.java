@@ -1,16 +1,13 @@
-package tn.zelda.projects.microservice.ordermicroservice.dao;
+package tn.zelda.projects.microservice.ordermicroservice.orders.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import tn.zelda.projects.microservice.ordermicroservice.OrderMicroserviceApplication;
-import tn.zelda.projects.microservice.ordermicroservice.domain.Order;
-import tn.zelda.projects.microservice.ordermicroservice.domain.OrderDetail;
-import tn.zelda.projects.microservice.ordermicroservice.domain.Product;
-
-import java.util.Set;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Order;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.OrderDetail;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Product;
 
 
 @Repository

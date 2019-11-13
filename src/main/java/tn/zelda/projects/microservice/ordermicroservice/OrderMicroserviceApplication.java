@@ -15,11 +15,11 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import tn.zelda.projects.microservice.ordermicroservice.dao.OrderRepository;
-import tn.zelda.projects.microservice.ordermicroservice.dao.ProductRepository;
-import tn.zelda.projects.microservice.ordermicroservice.domain.Order;
-import tn.zelda.projects.microservice.ordermicroservice.domain.OrderDetail;
-import tn.zelda.projects.microservice.ordermicroservice.domain.Product;
+import tn.zelda.projects.microservice.ordermicroservice.orders.dao.OrderRepository;
+import tn.zelda.projects.microservice.ordermicroservice.orders.dao.ProductRepository;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Order;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.OrderDetail;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Product;
 
 import javax.annotation.PostConstruct;
 

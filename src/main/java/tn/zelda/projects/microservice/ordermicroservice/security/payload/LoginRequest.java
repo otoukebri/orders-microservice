@@ -1,4 +1,4 @@
-package tn.zelda.projects.microservice.ordermicroservice.security;
+package tn.zelda.projects.microservice.ordermicroservice.security.payload;
 
 import javax.validation.constraints.NotBlank;
 

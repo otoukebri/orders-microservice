@@ -1,11 +1,9 @@
-package tn.zelda.projects.microservice.ordermicroservice.controller;
+package tn.zelda.projects.microservice.ordermicroservice.orders.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
-import tn.zelda.projects.microservice.ordermicroservice.dao.ProductRepository;
-import tn.zelda.projects.microservice.ordermicroservice.domain.Product;
+import tn.zelda.projects.microservice.ordermicroservice.orders.dao.ProductRepository;
+import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Product;
 
 @RestController
 public class OrdersController {

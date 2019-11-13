@@ -15,8 +15,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import tn.zelda.projects.microservice.ordermicroservice.security.JwtAuthenticationEntryPoint;
-import tn.zelda.projects.microservice.ordermicroservice.security.JwtAuthenticationFilter;
+import tn.zelda.projects.microservice.ordermicroservice.security.payload.JwtAuthenticationEntryPoint;
+import tn.zelda.projects.microservice.ordermicroservice.security.payload.JwtAuthenticationFilter;
 import tn.zelda.projects.microservice.ordermicroservice.security.service.CustomUserDetailsService;
 
 @Configuration

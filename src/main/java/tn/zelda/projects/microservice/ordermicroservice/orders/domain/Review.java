@@ -1,4 +1,4 @@
-package tn.zelda.projects.microservice.ordermicroservice.domain;
+package tn.zelda.projects.microservice.ordermicroservice.orders.domain;
 
 import java.io.Serializable;
 
