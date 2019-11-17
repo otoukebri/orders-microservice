@@ -1,4 +1,4 @@
-package tn.zelda.projects.microservice.ordermicroservice.orders.domain;
+package tn.zelda.projects.microservice.ordermicroservice.orders.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -42,8 +42,8 @@ public class Product {
 	private Set<Review> reviews;
 	
 	public Product() {
-		this.ordersDetails  = new HashSet<OrderDetail>();
-		this.reviews = new HashSet<Review>();
+		this.ordersDetails  = new HashSet<>();
+		this.reviews = new HashSet<>();
 	}
 
 	public Product(final String label, final String code, final float price) {

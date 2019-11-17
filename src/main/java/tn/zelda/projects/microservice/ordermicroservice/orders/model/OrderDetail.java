@@ -1,16 +1,8 @@
-package tn.zelda.projects.microservice.ordermicroservice.orders.domain;
+package tn.zelda.projects.microservice.ordermicroservice.orders.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "orderdetail")
@@ -39,15 +31,15 @@ public class OrderDetail implements Serializable {
 	private int stock;
 
 	public OrderDetail() {
-		this.product = new Product();
-		this.order = new Order();
-		this.createdOn = new Date();
+//		this.product = new Product();
+//		this.order = new Order();
+//		this.createdOn = new Date();
 	}
 
 	public OrderDetail(Product product, Order order) {
-		this.product = product;
-		this.order = order;
-		this.createdOn = new Date();		
+//		this.product = product;
+//		this.order = order;
+//		this.createdOn = new Date();
 	}
 
 	public int getStock() {

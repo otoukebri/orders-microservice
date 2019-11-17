@@ -1,9 +1,9 @@
-package tn.zelda.projects.microservice.ordermicroservice.orders.dao;
+package tn.zelda.projects.microservice.ordermicroservice.orders.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import tn.zelda.projects.microservice.ordermicroservice.orders.model.Product;
 
-import tn.zelda.projects.microservice.ordermicroservice.orders.domain.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {

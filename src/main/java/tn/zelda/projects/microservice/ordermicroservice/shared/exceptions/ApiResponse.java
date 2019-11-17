@@ -1,4 +1,4 @@
-package tn.zelda.projects.microservice.ordermicroservice.exceptions;
+package tn.zelda.projects.microservice.ordermicroservice.shared.exceptions;
 
 public class ApiResponse {
     private Boolean success;
